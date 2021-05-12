@@ -67,7 +67,7 @@ Parameters:
     Default: '/aws/service/ami-amazon-linux-latest/amzn2-ami-hvm-x86_64-gp2'
   ServerCodeUrl:
     Type: String
-    Default: 'https://raw.githubusercontent.com/rajatmishra16/challengeproject/main/application_server_setup.py'
+    Default: 'https://raw.githubusercontent.com/rajatmishra16/challengeproject/main/Challenge1/webapp_server_setup.py'
     AllowedPattern: '^(https?:\/\/)([\da-z\.-]+)\.([a-z\.]{2,6})([\/\w \.-]*)*\/?$'
     
   ALBSGSource:
@@ -248,8 +248,8 @@ Resources:
           source /home/ec2-user/venv/bin/activate
           pip install boto3
           pip install ec2_metadata
-          wget -O application_server_setup.py  ${ServerCodeUrl}
-          python3 application_server_setup.py  -p 80 -r ${AWS::Region}
+          wget -O webapp_server_setup.py  ${ServerCodeUrl}
+          python3 webapp_server_setup.py  -p 80 -r ${AWS::Region}
 
   WebInstancePolicy:
     Type: AWS::IAM::ManagedPolicy
